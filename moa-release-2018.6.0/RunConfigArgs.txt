@@ -1,0 +1,41 @@
+Melanie Run Config:
+EvaluatePrequential -l (Melanie -b (OzaBagByDu -e 11 -r 1)  -t 1 -s 30 -l 0.5 -a 0.01 -i 1000 -c 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/AbruptDrift/ClassSize500/Output_Experiment2_500_0_m.arff) -d (/home/pavel/MOA4900/moa-release-2018.6.0/testData/dumpFile.csv) -o (/home/pavel/MOA4900/moa-release-2018.6.0/testData/outputPredictionFile) -O (/home/pavel/MOA4900/moa-release-2018.6.0/testData/taskResultFile)
+
+EvaluatePrequential -l (DDMByDu -b(-s 30 -i 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/AbruptDrift/ClassSize500/Output_Experiment2_500_0_m.arff) -d (/home/pavel/MOA4900/moa-release-2018.6.0/testData/dumpFile.csv) -o (/home/pavel/MOA4900/moa-release-2018.6.0/testData/outputPredictionFile) -O (/home/pavel/MOA4900/moa-release-2018.6.0/testData/taskResultFile)
+
+
+Working Melanie with Boosting!!!!!:
+EvaluatePrequential -l (Melanie  -t 1 -s 30 -l 0.5 -a 0.01 -i 1000 -c 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/NoDrift/ClassSize50/Output_Experiment1_50_0_m.arff) -d (/home/pavel/MOA4900/moa-release-2018.6.0/testData/dumpFile.csv) -o (/home/pavel/MOA4900/moa-release-2018.6.0/testData/outputPredictionFile) -O (/home/pavel/MOA4900/moa-release-2018.6.0/testData/taskResultFile)
+
+EvaluatePrequential -l (Melanie -b (meta.OzaBoost -s 11 )  -t 1 -s 30 -l 0.5 -a 0.01 -i 1000 -c 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/NoDrift/ClassSize50/Output_Experiment1_50_0_m.arff)
+
+Working Boosting!!!!
+EvaluatePrequential -l (meta.OzaBoost -s 11 )  -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/NoDrift/ClassSize50/Output_Experiment1_50_0_m.arff)
+
+Shortened Bagging Working!!!!:
+"EvaluatePrequential -l (Melanie -b (OzaBagByDu -e $sub_c -r 1)  -t $theta -s 30 -l 0.5 -a 0.01 -i 1000 -c 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/IncrementalDrift/ClassSize500/Output_Experiment3_500_6_m.arff)"
+
+Working DDM (online boosting)
+
+EvaluatePrequential -l ( DDMbyDu -l (meta.OzaBoost -s 11 )) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/NoDrift/ClassSize50/Output_Experiment1_50_0_m.arff)
+
+***********************************runjob.sh*********************************************************************************
+#!/bin/bash -x
+
+# bin bash interpreter of bash screen 
+# bash shell script (no space bw operator)
+thetas=($(seq 0 0.1 1)) 
+sub_classifier=($(seq 10 1 30))
+
+for sub_c in "${sub_classifier[@]}"; do
+	for theta in "${thetas[@]}"; do  #$ use value {[]} entire array not only one val.$thetas[@] -first val ${theta[@]}- everyth.
+		echo $theta # line continuation \ no char after that
+		java -javaagent:/home/pavel/.m2/repository/com/github/fracpete/sizeofag/1.0.4/sizeofag-1.0.4.jar \
+		-cp Pavel.jar moa.DoTask "EvaluatePrequential -l (Melanie -b (meta.OzaBoost -s $sub_c )  -t $theta -s 30 -l 0.5 -a 0.01 -i 1000 -c 1000 -u 1000 -f (/home/pavel/MOA4900/moa-release-2018.6.0/testData/Output.arff)) -s (ArffFileStream -f /home/pavel/MOA4900/moa-release-2018.6.0/testData/NoDrift/ClassSize50/Output_Experiment1_50_2_m.arff)"
+
+done
+done
+******************************************************************************************************************************
+
+
+

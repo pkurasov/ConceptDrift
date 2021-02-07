@@ -1,0 +1,42 @@
+
+
+IncrementalDrift/ClassSize500/Output_Experiment3_500_6_m.arff  (done)
+IncrementalDrift/ClassSize5000/Output_Experiment3_5000_6_m.arff (problem with data)
+AbruptDrift/ClassSize500/Output_Experiment2_500_1_m.arff (done)
+AbruptDrift/ClassSize5000/Output_Experiment2_5000_1_m.arff(done)
+ReoccuringDrift/ClassSize50/Output_Experiment4_50_1_m.arff (done)
+ReoccuringDrift/ClassSize500/Output_Experiment4_500_1_m.arff (done)
+ReoccuringDrift/ClassSize5000/Output_Experiment4_5000_1_m.arff (done)
+NoDrift/ClassSize5000/Output_Experiment1_5000_2_m.arff (done)
+
+**Boosting**
+AbruptDrift/ClassSize50/Output_Experiment2_50_0_m.arff
+AbruptDrift/ClassSize50/Output_Experiment2_50_1_m.arff
+AbruptDrift/ClassSize500/Output_Experiment2_500_0_m.arff
+AbruptDrift/ClassSize500/Output_Experiment2_500_1_m.arff
+AbruptDrift/ClassSize5000/Output_Experiment2_5000_0_m.arff
+AbruptDrift/ClassSize5000/Output_Experiment2_5000_1_m.arff
+
+ReoccuringDrift/ClassSize50/Output_Experiment4_50_0_m.arff
+ReoccuringDrift/ClassSize50/Output_Experiment4_50_1_m.arff
+ReoccuringDrift/ClassSize500/Output_Experiment4_500_0_m.arff
+ReoccuringDrift/ClassSize500/Output_Experiment4_500_1_m.arff
+ReoccuringDrift/ClassSize5000/Output_Experiment4_5000_0_m.arff
+ReoccuringDrift/ClassSize5000/Output_Experiment4_5000_1_m.arff
+
+NoDrift/ClassSize50/Output_Experiment1_50_0_m.arff
+NoDrift/ClassSize50/Output_Experiment1_50_1_m.arff
+NoDrift/ClassSize50/Output_Experiment1_50_2_m.arff
+NoDrift/ClassSize500/Output_Experiment1_500_0_m.arff
+NoDrift/ClassSize500/Output_Experiment1_500_1_m.arff
+NoDrift/ClassSize500/Output_Experiment1_500_2_m.arff
+NoDrift/ClassSize5000/Output_Experiment1_5000_0_m.arff
+NoDrift/ClassSize5000/Output_Experiment1_5000_1_m.arff
+NoDrift/ClassSize5000/Output_Experiment1_5000_2_m.arff
+
+IncrementalDrift/ClassSize50/Output_Experiment3_50_0_m.arff
+IncrementalDrift/ClassSize50/Output_Experiment3_50_6_m.arff
+IncrementalDrift/ClassSize500/Output_Experiment3_500_0_m.arff
+IncrementalDrift/ClassSize500/Output_Experiment3_500_6_m.arff
+IncrementalDrift/ClassSize5000/Output_Experiment3_5000_0_m.arff
+IncrementalDrift/ClassSize5000/Output_Experiment3_5000_6_m.arff
